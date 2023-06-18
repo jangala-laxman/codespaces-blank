@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
+const crypto = require('crypto')
 const droneSchema = new mongoose.Schema({
-    
+    drone_id:{
+        type:String,
+        default:crypto.randomBytes(4).toString('hex')
+    },
     drone_type:{
         type:String
     },
@@ -18,7 +22,12 @@ const droneSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"user"
     }
-})
+},{
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  })
 
 const Drones = mongoose.model('Drones', droneSchema);
 module.exports = Drones;

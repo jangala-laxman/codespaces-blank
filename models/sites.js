@@ -27,18 +27,10 @@ const siteSchema = new mongoose.Schema(
     }
   },
   {
-  //   timestamps: {
-  //     createdAt: {
-  //       created_at: {
-  //         $date: { type: Date },
-  //       },
-  //     },
-  //     updatedAt: {
-  //       updated_at: {
-  //         $date: { type: Date },
-  //       },
-  //     },
-  //   },
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
   }
 );
 

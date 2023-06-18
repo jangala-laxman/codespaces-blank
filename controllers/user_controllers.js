@@ -68,14 +68,13 @@ const moveDroneToOtherSite = async(req,res)=>{
   try{
     const user = await User.findById(req.params.userId);
     const drone = await Drones.findById(req.params.droneId)
-    const site = await Sites.findOne({site_name:req.body.site_name})
+    const site = await Sites.findById(req.params.siteId)
 
     if(!site){
       res.json(`${req.body.site_name} is not present `)
     }else{
-      drone.updateOne({
-        site_name:site.id
-    })
+      await drone.updateOne({site_name:site.id})
+      await user.updateOne({site:site.id})
     res.json(drone)
   }
   }catch(err){

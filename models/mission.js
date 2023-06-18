@@ -20,20 +20,12 @@ const missionSchema = new mongoose.Schema(
       ref:'Sites'
     }
   },
-  // {
-  //   timestamps: {
-  //     createdAt: {
-  //       created_at: {
-  //         $date: { type: Date },
-  //       },
-  //     },
-  //     updatedAt: {
-  //       updated_at: {
-  //         $date: { type: Date },
-  //       },
-  //     },
-  //   },
-  // }
+  {
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  }
 );
 
 const Mission = mongoose.model('Missions', missionSchema);

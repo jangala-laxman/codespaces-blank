@@ -3,8 +3,8 @@ const {addDrone, updatedrone, deletedrone} = require('../controllers/drone_contr
 
 const router = express.Router()
 
-router.post('/:userId/addDrone', addDrone)
-router.patch('/:userId/:droneId/updateDrone', updatedrone )
-router.get('/:userId/:droneId/deleteDrone', deletedrone)
+router.post('/:userId/:siteId/addDrone', addDrone)
+router.patch('/:userId/:siteId/:droneId/updateDrone', updatedrone )
+router.get('/:userId/:siteId/:droneId/deleteDrone', deletedrone)
 
 module.exports = router

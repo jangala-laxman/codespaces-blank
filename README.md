@@ -9,7 +9,6 @@ requirements:
 ● Users can change drones from one campus/site to another. But missions cannot be changed from one campus/site to another.
 ● Users can run missions only on drones that are assigned to the site where the mission belongs.
 ● Missions can be categorized into multiple types (path, grid/survey, corridor).
-● Users can use these categories to filter missions according to his/her needs.
 
 I used Nodejs, Mongoose and required NPM libraries for building this API. 
 
@@ -25,5 +24,20 @@ for example, consider a post route of adding drone under a user and site.
     "/:userId/:siteId/addDrone" - 
     userId and siteId params should be given from the mongoDB. 
     Add the relevant details like, drone_type, make_name, name in the body (raw - json).
+
+                {
+                    "drone_type":"hexa",
+                    "make_name":"big hero 6",
+                    "name":"hero"
+                }
+
     On clicking POST, this data is pushed to the DB. 
+
+Follow the same procedure for making Any post or patch requests. 
+
+For fetching the data for any user, please provide his/her user._id in the url. Then the user specific data will be fetched.
+
+For deleting the data for any user, please provide his/her user._id in the url. Then the user specific data will be deleted.
+
+
 
